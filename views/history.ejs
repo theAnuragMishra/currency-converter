@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>History</title>
 <%-include("partials/cdns.ejs")%>
-<%- include('partials/navbar.ejs') %>
 <link rel="stylesheet" href="styles/history.css">
+</head>
+<body>
+<%- include('partials/navbar.ejs') %>
 <main>
   <%if(fromArray.length === 0){%>
         <link rel="stylesheet" href="styles/blankhistory.css">
@@ -85,3 +90,5 @@
 <%- include('partials/social.ejs') %>
 
 <script src="scripts/history.js"></script>
+</body>
+</html>
