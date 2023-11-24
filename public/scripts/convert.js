@@ -17,7 +17,11 @@ to.value = "USD";
 convertButton.addEventListener('click', () => {
     animateConvertButton();
     animateResult();
- fetch(`/conversion?amount=${amount.value}&from=${from.value}&to=${to.value}`)
+    let fromCurrency = from.value;
+    let toCurrency = to.value;
+    if(fromCurrency.length >3){fromCurrency = fromCurrency.slice(1,4);}
+    if(toCurrency.length >3){toCurrency = toCurrency.slice(1,4);}
+ fetch(`/conversion?amount=${amount.value}&from=${fromCurrency}&to=${toCurrency}`)
     .then(response => response.json())
     .then(data => {
       result.value = data.convertedAmount;
@@ -27,7 +31,7 @@ convertButton.addEventListener('click', () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({from:from.value, to: to.value, amount: amount.value, result:result.value}),
+        body: JSON.stringify({from:fromCurrency, to: toCurrency, amount: amount.value, result:result.value}),
       })
       .then(response => response.text())
       .then(data => {
@@ -59,12 +63,14 @@ arrowImage.addEventListener("click", () => {
 });
 
 favFrom.addEventListener("click", () => {
+    let fromCurrency = from.value;
+    if(fromCurrency.length >3){fromCurrency = fromCurrency.slice(1,4);}
     fetch('/add-to-favorites-from', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
         },
-        body: JSON.stringify({currency:from.value}),
+        body: JSON.stringify({currency:fromCurrency}),
     })
     .then(response => response.text())
     .then(data => {
@@ -76,12 +82,14 @@ favFrom.addEventListener("click", () => {
 });
 
 favTo.addEventListener("click", () => {
+    let toCurrency = to.value;
+    if(toCurrency.length >3){toCurrency = toCurrency.slice(1,4);}
     fetch('/add-to-favorites-to', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
         },
-        body: JSON.stringify({currency:to.value}),
+        body: JSON.stringify({currency:toCurrency}),
     })
     .then(response => response.text())
     .then(data => {
