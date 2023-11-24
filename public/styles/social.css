@@ -1,0 +1,5 @@
+.social-icon{
+       color:white !important;
+    transition: transform 0.2s ease-in-out;
+    font-size: 2rem;
+}

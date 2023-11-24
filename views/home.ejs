@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title>Home</title>
+<%-include("partials/cdns.ejs")%>
+<%- include('partials/navbar.ejs') %>
+<link rel="stylesheet" href="styles/home.css">
+<div class="container mt-4">
+  <div class="row">
+    <% titleArray.forEach((item,index)=>{  %>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="<%= urlToImageArray[index] %>" class="card-img-top" alt="News Image">
+          <div class="card-body">
+            <h5 class="card-title"><%= item %></h5>
+            <p class="card-text"><%= descriptionArray[index] %></p>
+            <a href="<%= urlArray[index] %>" class="btn btn-primary" target="_blank">Read More</a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Author: <%= authorArray[index] %></small>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+<%-include("partials/gototopbtn.ejs")%>
+<%- include('partials/social.ejs') %>
+
+
+
+

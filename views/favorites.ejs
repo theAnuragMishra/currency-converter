@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+    <title>Favorites</title>
+<%-include("partials/cdns.ejs")%>
+<%- include('partials/navbar.ejs') %>
+<link rel="stylesheet" href="styles/favorites.css">
+<main>
+<div class="container">
+    <div class="list-container">
+        <!-- First List -->
+        <div class="list">
+            <h2>From</h2>
+            <ul class="list-group">
+                <%if(fromArray){fromArray.forEach((item,index)=>{%>
+            <li id="fromList">
+                <div><div id="fc<%=index+1%>-li"><%=item%></div> <img src="images/trash3.svg" alt="" id="fc<%=index+1%>"></div>
+            </li>
+            <%})}%>
+            </ul>
+        </div>
+
+        <!-- Second List -->
+        <div class="list">
+            <h2>To</h2>
+            <ul class="list-group">
+                 <%if(toArray){toArray.forEach((item,index)=>{%>
+            <li id="toList">
+                <div><div id="tc<%=index+1%>-li"><%=item%></div> <img src="images/trash3.svg" alt="" id="tc<%=index+1%>"></div>
+            </li>
+              <%})}%>
+            </ul>
+        </div>
+    </div>
+</div>
+</main>
+
+<%-include("partials/gototopbtn.ejs")%>
+<%- include('partials/social.ejs') %>
+
+<script src="scripts/favorites.js"></script>

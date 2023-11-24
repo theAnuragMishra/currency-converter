@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+  <title>Convert</title>
+
+<%-include("partials/cdns.ejs")%>
+
+<link rel="stylesheet" href="styles/convert.css">
+<body>
+<%- include('partials/navbar.ejs') %>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+<!-- currency array -->
+    <%let currencyArray= [
+    "AED", "AFN", "XCD", "ALL", "AMD", "ANG", "AOA", "AQD", "ARS", "AUD",
+    "AZN", "BAM", "BBD", "BDT", "XOF", "BGN", "BHD", "BIF", "BMD", "BND",
+    "BOB", "BRL", "BSD", "NOK", "BWP", "BYR", "BZD", "CAD", "CDF", "XAF",
+    "CHF", "CLP", "CNY", "COP", "CRC", "CUP", "CVE", "CYP", "CZK", "DJF",
+    "DKK", "DOP", "DZD", "ECS", "EEK", "EGP", "ETB", "EUR", "FJD", "FKP",
+    "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD",
+    "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "INR", "IQD", "IRR", "ISK",
+    "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD",
+    "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LTL", "LVL", "LYD",
+    "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRO", "MTL", "MUR",
+    "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "XPF", "NGN", "NIO", "NPR",
+    "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR",
+    "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD",
+    "SKK", "SLL", "SOS", "SRD", "STD", "SVC", "SYP", "SZL", "THB", "TJS",
+    "TMT", "TND", "TOP", "TRY", "TTD", "TWD", "TZS", "UAH", "UGX", "USD",
+    "UYU", "UZS", "VEF", "VND", "VUV", "YER", "ZAR", "ZMK", "ZWD"
+];
+
+%>
+<main>
+
+  <div class="container">
+    <div class="heading"><h1 id="topText">WebWave Trio</h1></div>
+<div class="form-groups">
+    <div class="form-group"><img id="fromFlag" src="https://flagsapi.com/IN/flat/32.png">
+      <select class="form-select" id="from">
+        <%if(fromArray){fromArray.forEach(item=>{%>
+            <option value="&#9733;<%=item%>">&#9733;<%=item%></option>
+        <%})}%>
+      <%currencyArray.forEach(item=>{%>
+          <option value="<%=item%>"><%=item%></option>
+          <% }) %>
+      </select><%if(user){%><img id='fav-from' src="images/star.svg" alt="star"><%}%>
+    </div>
+
+    <div class="form-group"><img id="toFlag" src="https://flagsapi.com/US/flat/32.png">
+      <select class="form-select" id="to">
+        <%if(toArray){toArray.forEach(item=>{%>
+            <option value="&#9733;<%=item%>">&#9733;<%=item%></option>
+        <%})}%>
+        <%currencyArray.forEach(item=>{%>
+          <option value="<%=item%>"><%=item%></option>
+          <% }) %>
+      </select><%if(user){%><img id='fav-to' src="images/star.svg" alt="star"><%}%>
+    </div>
+
+</div>
+    <img id="arrowImage" class="arrows" src="images/arrow.svg" alt="Arrow Image">
+<div class="io">
+    <input type="number" placeholder="Amount" class="form-control" id="amountInput">
+
+  <input type="text" id="resultDiv" placeholder="Result" class="form-control" disabled>
+
+  </div>
+
+    <button class="btn btn-success" id="convertBtn">Convert</button>
+  </div>
+
+</main>
+<div class="stars">
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+    </div>
+
+<%-include('partials/social.ejs')%>
+
+<script src="scripts/convert.js"></script>
+<script src="scripts/countryFlag.js"></script>
+
+</body>
+

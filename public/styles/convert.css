@@ -1,0 +1,124 @@
+ body {
+       background: linear-gradient(to right, #1a1a1a, #000);
+      color: white;
+      font-family: 'Arial', sans-serif;
+    }
+main .container{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+      /*margin-top: 5rem;*/
+    min-height: 75vh;
+}
+
+
+    div.heading{
+margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+
+
+
+    }
+
+
+
+    .form-group select{
+         /*width: 200px;*/
+       /*margin:10px 0;*/
+        text-align: center;
+    }
+
+    #arrowImage {
+      display: block;
+      margin: 0 auto;
+         width: 5rem;
+  height: 5rem;
+  cursor: pointer;
+        filter:invert(100%);
+    }
+
+    #amountInput, #resultDiv {
+      width: 200px;
+      margin: 10px;
+      display: inline-block;
+        text-align: center;
+    }
+
+#amountInput::placeholder, #resultDiv::placeholder{
+    text-align: center;
+
+}
+
+    #convertBtn {
+      margin-top: 20px;
+
+    }
+
+    #fav-from, #fav-to {
+
+height: 1rem;width:1rem;
+  cursor: pointer;
+
+}
+
+#fav-from:active, #fav-to:active {
+  transform: scale(0.9);
+}
+
+.form-group{
+    display: inline-flex; !important;
+    align-items: center;
+    width: 200px;
+    justify-content: center;
+    background-color: white;
+margin: 10px;
+    border-radius: 0.375rem;
+    padding: 0 10px;
+}
+
+.form-group select{
+    border: none;
+    height: 36px;
+}
+
+.form-group select:focus{
+    box-shadow: none;
+    border: none;
+}
+
+/*moon*/
+  .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            width: 2px;
+            height: 2px;
+            animation: twinkling 3s infinite alternate;
+      z-index:-1;
+        }
+
+        @keyframes twinkling {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0.7;
+            }
+        }
+
+
+
+        .star:nth-child(1) { top: 10%; left: 20%; }
+        .star:nth-child(2) { top: 30%; left: 80%; }
+        .star:nth-child(3) { top: 50%; left: 10%; }
+        .star:nth-child(4) { top: 70%; left: 15%; }
+        .star:nth-child(5) { top: 20%; left: 78%; }
+        .star:nth-child(6) { top: 80%; left: 17%; }
+        .star:nth-child(7) { top: 40%; left: 96%; }
+        .star:nth-child(8) { top: 60%; left: 89%; }

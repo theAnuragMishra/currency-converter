@@ -1,0 +1,32 @@
+body {
+      background-color: #222;
+      color: #fff;
+
+    }
+
+    main .container {
+      margin-top: 20px;
+        min-height: 75vh;
+        text-align: center;
+    }
+
+    .history-item {
+      background-color: #333;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+
+    .timestamp {
+      color: #999;
+      font-size: 0.9em;
+    }
+
+    button{
+        margin-bottom: 20px;
+    }
+
+    .modal{
+        color:black;
+        text-align: left;
+    }

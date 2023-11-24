@@ -1,0 +1,41 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/team">WebWave Trio</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/"><i class="bi bi-house"></i>Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/convert"><i class="bi bi-arrow-left-right"></i>Convert</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/favorites"><i class="bi bi-star"></i>Favorites</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/history"><i class="bi bi-clock"></i>History</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/team"><i class="bi bi-people"></i>Team</a>
+        </li>
+      </ul>
+        <ul class="navbar-nav">
+        <li class="nav-item">
+          <%if(user){ if(user.displayName.indexOf(' ') >0){%>
+          <a class="nav-link" href="/profile">Welcome, <%=user.displayName.slice(0,user.displayName.indexOf(' '))%>!</a>
+          <%} else{%>
+            <a class="nav-link" href="/profile">Welcome, <%=user.displayName%>!</a>
+          <%}} else {%>
+            <a class="nav-link" href="/auth"><i class="bi bi-person"></i>Login/Signup</a>
+            <%}%>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

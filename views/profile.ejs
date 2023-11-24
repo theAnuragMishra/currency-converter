@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+  <title>Profile</title>
+<%-include("partials/cdns.ejs")%>
+  <link rel="stylesheet" href="styles/profile.css">
+<body>
+
+  <%- include('partials/navbar.ejs') %>
+
+  <div class="maindiv">
+
+    <h1><%=user.displayName%></h1>
+    <p><%=user.email%></p>
+    <div>You have made <span style="color:yellow; font-size:1.7rem; font-weight: 900"><%=historyCount%></span> conversions till now!</div>
+
+
+    <form action="/logout" method="post">
+      <button type="submit">Logout</button>
+    </form>
+
+  </div>
+
+  <%- include('partials/social.ejs') %>
+</body>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup</title>
+     <%-include("partials/cdns.ejs")%>
+    <link rel="stylesheet" href="styles/auth.css">
+</head>
+<body>
+<%-include("partials/navbar.ejs")%>
+<main>
+    <div class="auth-container">
+        <div class="auth-header">
+            <h2>WebWave Trio</h2>
+        </div>
+        <div class="auth-form">
+            <!-- Login Form -->
+            <form id="login-form" action="/login" method="post">
+                <input name="email" type="email" placeholder="Email" required>
+                <input name="password" type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signup-form" style="display: none;" action="/signup" method="post">
+                <input name="name" type="text" placeholder="Full Name" required>
+                <input name="email" type="email" placeholder="Email" required>
+                <input name="password" type="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="auth-switch">
+            <p>Don't have an account? <a href="#" onclick="toggleForms()">Sign up</a></p>
+        </div>
+    </div>
+    </main>
+<%-include("partials/social.ejs")%>
+    <script>
+        function toggleForms() {
+            let loginForm = document.getElementById('login-form');
+            let signupForm = document.getElementById('signup-form');
+            let authSwitch = document.querySelector('.auth-switch');
+
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                authSwitch.innerHTML = '<p>Don\'t have an account? <a href="#" onclick="toggleForms()">Sign up</a></p>';
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+                authSwitch.innerHTML = '<p>Already have an account? <a href="#" onclick="toggleForms()">Login</a></p>';
+            }
+        }
+        document.getElementsByTagName("form").forEach(form=>{
+            form.addEventListener("submit",e=>{
+                e.preventDefault();
+                let data = new FormData(form);
+                fetch(form.action,{
+                    method:form.method,
+                    body:data
+                })
+            })
+        })
+    </script>
+</body>
+</html>

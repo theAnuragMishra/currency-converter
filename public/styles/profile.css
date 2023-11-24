@@ -1,0 +1,40 @@
+body {
+    background-color: #121212;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.maindiv{
+     text-align: center;
+    padding: 20px;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.maindiv>*{
+    margin: 15px;
+}
+
+.maindiv h1 {
+    font-size: 3em;
+}
+
+.maindiv p{
+    font-size: 1.5em;
+    margin-top: -10px;
+}
+
+.maindiv div{
+    margin-top:0px;
+}
+.maindiv button{
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+}

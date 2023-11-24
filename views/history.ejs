@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+  <title>History</title>
+<%-include("partials/cdns.ejs")%>
+<%- include('partials/navbar.ejs') %>
+<link rel="stylesheet" href="styles/history.css">
+<main>
+  <%if(fromArray.length === 0){%>
+        <link rel="stylesheet" href="styles/blankhistory.css">
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+
+
+<div class="moon"></div>
+
+<div id="content">
+    <h1>Welcome to the Blank History Page!</h1>
+    <p>Explore the vastness of conversions in the galaxy.</p>
+    <p>Click the button below to start your journey!</p>
+    <button id="convertButton" onclick="window.location.href='/convert'">Go to Convert Page</button>
+</div>
+
+    <%} else{%>
+  <div class="container">
+     <button data-bs-toggle="modal" data-bs-target="#myModal" type="button" class="btn btn-danger" id="clear-history-modal-toggle">Clear History</button>
+<!--Modal-->
+   <div class="modal" id="myModal" aria-hidden="true" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">This will clear all your history and reset your conversion count!</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        Do you want to proceed?
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="okButton" data-bs-dismiss="modal">
+          OK <i class="bi bi-exclamation-triangle"></i>
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+    <%fromArray.forEach((item, index)=>{%>
+    <div class="history-item">
+      <p>Converted <strong><%=amountArray[index]%> <%=item%></strong> to <strong><%=resultArray[index]%> <%=toArray[index]%></strong> on <span class="timestamp"><%=timeArray[index].toDate().toLocaleString('en-Us', {
+  timeZone: 'Asia/Kolkata',
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric'
+})%></span></p>
+    </div>
+    <%})%>
+
+  </div>
+    <%-include("partials/gototopbtn.ejs")%>
+  <%}%>
+</main>
+
+<%- include('partials/social.ejs') %>
+
+<script src="scripts/history.js"></script>
