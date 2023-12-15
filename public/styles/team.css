@@ -5,6 +5,10 @@ body {
     margin: 0;
 }
 
+.row{
+    justify-content: center;
+  align-items: center;
+}
 
 
 .team-container {
